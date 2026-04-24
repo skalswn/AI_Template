@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:/properties/globals.properties"/>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${Globals.DriverClassName}"/>
+        <property name="url" value="${Globals.Url}"/>
+        <property name="username" value="${Globals.UserName}"/>
+        <property name="password" value="${Globals.Password}"/>
+        <property name="initialSize" value="${Globals.InitialSize}"/>
+        <property name="maxTotal" value="${Globals.MaxTotal}"/>
+        <property name="maxIdle" value="${Globals.MaxIdle}"/>
+        <property name="minIdle" value="${Globals.MinIdle}"/>
+        <property name="maxWaitMillis" value="${Globals.MaxWaitMillis}"/>
+    </bean>
+</beans>
